@@ -418,7 +418,9 @@ function FlatpickrInstance(
     }
 
     const debouncedResize = debounce(onResize, 50);
-    self._debouncedChange = debounce(triggerChange, DEBOUNCED_CHANGE_MS);
+    self._debouncedChange = self.config.debounceChange
+      ? debounce(triggerChange, DEBOUNCED_CHANGE_MS)
+      : triggerChange;
 
     if (self.daysContainer && !/iPhone|iPad|iPod/i.test(navigator.userAgent))
       bind(self.daysContainer, "mouseover", (e: MouseEvent) => {

@@ -92,6 +92,11 @@ export interface BaseOptions {
   */
   dateFormat: string;
 
+  /*
+    Whether onChange calls are debounced or triggered immediately. By default, onChange calls are debounced.
+  */
+  debounceChange: boolean;
+
   /* The initial selected date(s). */
   defaultDate: DateOption | DateOption[];
 
@@ -267,6 +272,7 @@ export interface ParsedOptions {
   closeOnSelect: boolean;
   conjunction: string;
   dateFormat: string;
+  debounceChange: boolean;
   defaultDate?: Date | Date[];
   defaultHour: number;
   defaultMinute: number;
@@ -333,6 +339,7 @@ export const defaults: ParsedOptions = {
   closeOnSelect: true,
   conjunction: ", ",
   dateFormat: "Y-m-d",
+  debounceChange: true,
   defaultHour: 12,
   defaultMinute: 0,
   defaultSeconds: 0,

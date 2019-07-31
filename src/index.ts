@@ -1835,10 +1835,11 @@ function FlatpickrInstance(
       self.config.minDate !== undefined
         ? new Date(self.config.minDate.getTime())
         : new Date(),
-      true
+      false
     );
     setDefaultHours();
     updateValue();
+    triggerEvent("onChange");
   }
 
   function open(
